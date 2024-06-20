@@ -1,0 +1,129 @@
+### Register a new user
+POST http://localhost:5001/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example1.com",
+  "password": "password",
+  "phoneNumber": "1234567890"
+}
+
+### Login a user
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+  "email": "venna2780@gmail.com",
+  "password": "vijaya"
+}
+
+### Forgot password
+POST http://localhost:5000/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "test@example.com"
+}
+
+### Reset password
+POST http://localhost:5000/api/auth/reset-password
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "otp": "123456",
+  "newPassword": "newpassword"
+}
+
+### Submit a story for initial review
+POST http://localhost:5001/submit-story
+Content-Type: application/json
+x-auth-token: {{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTgxMDY4NTUsImV4cCI6MTcxODExMDQ1NX0.lFNebhoLfZjSs-bZkMMZXzvKpHA8OYjlBazG5KItVOQ}}
+
+{
+  "storyName": "Sample Story",
+  "storyPDF": "path/to/story.pdf",
+  "writerId": 1
+}
+
+### Update story status
+PUT http://localhost:5000/api/story/status
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "storyId": 1,
+  "status": "approved"
+}
+
+### Submit a music composition
+POST http://localhost:5000/api/music/submit
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "songName": "Sample Song",
+  "audioFile": "path/to/song.mp3",
+  "composerId": 1
+}
+
+### Update music status
+PUT http://localhost:5000/api/music/status
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "musicId": 1,
+  "status": "approved"
+}
+
+### Process payment
+POST http://localhost:5000/api/payment/process
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "userId": 1,
+  "amount": 5000
+}
+
+### Apply for an actor role
+POST http://localhost:5000/api/actor/apply
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "userId": 1,
+  "roleName": "Lead Role"
+}
+
+### Update actor payment status
+PUT http://localhost:5000/api/actor/payment-status
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "actorId": 1,
+  "paymentStatus": "completed"
+}
+
+### Apply for a director project
+POST http://localhost:5000/api/director/apply
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "userId": 1,
+  "projectName": "Sample Project"
+}
+
+### Update director payment status
+PUT http://localhost:5000/api/director/payment-status
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+  "directorId": 1,
+  "paymentStatus": "completed"
+}
